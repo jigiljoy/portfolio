@@ -4,247 +4,385 @@
     box-sizing: border-box;
 }
 
-/* Body and Basic Styles */
+/* Body & Base Styling */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: Arial, sans-serif;
+    background-color: #D5DBDB;
+    color: #1C2833;
     line-height: 1.6;
 }
 
-header {
-    background-color: #365367;
-    color: white;
-    padding: 20px 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+a {
+    text-decoration: none;
+    color: #1C2833;
 }
 
 header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-}
-
-header .logo h1 {
-    font-size: 30px;
-}
-
-header .logo p {
-    font-size: 18px;
-    color: #white;
-}
-
-header .nav-links {
-    list-style-type: none;
-    display: flex;
-}
-
-header .nav-links li {
-    margin-left: 20px;
-}
-
-header .nav-links li a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    transition: color 0.3s;
+    padding: 20px 20px;
 }
 
 header .nav-links li a:hover {
     color: #e74c3c;
 }
 
-/* Hero Section */
-.hero {
-    background-color: #ecf0f1;
-    color: #282726;
-    height: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
+/* Navigation Bar */
+header {
+    background-color: #1C2833;
+    padding: 1rem;
 }
 
-.hero-content h2 {
-    font-size: 48px;
+nav .logo h1 {
+    color: white;
+    font-size: 2rem;
+}
+
+nav .logo p {
+    color: #D5DBDB;
+    font-size: 14px;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav .nav-links li {
+    margin: 0 15px;
+}
+
+nav .nav-links a {
+    color: #D5DBDB;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+/* Home Section */
+.home {
+    background-color: #1C2833;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.home h2 {
+    font-size: 2.5rem;
+    color: white;
     margin-bottom: 20px;
 }
 
-.hero-content p {
-    font-size: 20px;
-    margin-bottom: 30px;
-}
-
-.cta-button {
-    padding: 12px 30px;
-    background-color: #365367;
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #c0392b;
+.home p {
+    font-size: 1.2rem;
+    color: #D5DBDB;
+    margin-bottom: 20px;
 }
 
 /* About Section */
 .about {
-    padding: 60px 20px;
     text-align: center;
+    padding: 60px 20px;
+    background-color: #fff;
 }
 
 .about h2 {
-    font-size: 36px;
+    font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
 .about p {
-    font-size: 18px;
-    max-width: 900px;
+    font-size: 1.2rem;
+    max-width: 800px;
     margin: 0 auto;
-    line-height: 1.8;
 }
 
 /* Portfolio Section */
 .portfolio {
+    text-align: center;
     padding: 60px 20px;
-    background-color: #ecf0f1;
+    background-color: #fff;
 }
 
 .portfolio h2 {
-    font-size: 36px;
-    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.portfolio p {
+    font-size: 1.2rem;
     margin-bottom: 40px;
 }
 
-.portfolio-gallery {
+.portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
     gap: 20px;
+    max-width: 1200px; /* Limits the width to ensure equal breathing space */
+    margin: 0 auto; /* Centers the grid within the page */
 }
 
-.project-card {
-    background-color: black;
-    border-radius: 20px;
+.portfolio-item {
+    position: relative;
     overflow: hidden;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
+    height: 300px; /* Fixed height for all items */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4; /* Background color in case the image does not fill the space */
 }
 
-.project-card:hover {
-    transform: scale(1.05);
-}
-
-.project-card img {
+.portfolio-item iframe, .portfolio-item img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 100%; /* Ensure image or iframe fills the container */
+    object-fit: cover; /* Makes sure images maintain aspect ratio while covering the container */
+    border-radius: 10px;
 }
 
-.project-card h3 {
-    font-size: 24px;
-    margin-top: 15px;
+.portfolio-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.project-card p {
-    font-size: 16px;
-    margin: 10px 0;
+.portfolio-item:hover .overlay {
+    opacity: 1;
 }
 
-.project-card a {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
+.portfolio-item h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+/* Services Section */
+.services {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #f4f4f4;
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    color: #1C2833;
     margin-bottom: 20px;
-    transition: background-color 0.3s;
 }
 
-.project-card a:hover {
-    background-color: #2980b9;
+.services p {
+    font-size: 1.2rem;
+    color: #1C2833;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 40px;
+    justify-items: center;
+}
+
+.service-card {
+    background-color: #fff;
+    border: 2px solid #D5DBDB;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 320px; /* Maximum width for a card */
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    font-size: 40px;
+    color: #1C2833;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.6rem;
+    color: #1C2833;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .services-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Contact Section */
 .contact {
     padding: 60px 20px;
+    text-align: center;
+    background-color: #fff;
 }
 
 .contact h2 {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 30px;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 
 .contact form {
     max-width: 600px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    text-align: left;
+}
+
+.contact label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
 }
 
 .contact input, .contact textarea {
+    width: 100%;
     padding: 12px;
-    font-size: 16px;
-    border-radius: 5px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .contact button {
-    padding: 12px;
-    font-size: 18px;
-    background-color: #365367;
-    color: white;
+    background-color: #1C2833;
+    color: #fff;
+    padding: 12px 20px;
     border: none;
-    border-radius: 30px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 .contact button:hover {
-    background-color: #c0392b;
+    background-color: #D5DBDB;
+    color: #1C2833;
 }
 
-/* Footer Section */
-footer {
-    background-color: #ecf0f1;
-    color: #365367;
+.social-links {
     text-align: center;
-    padding: 20px;
+    padding: 60px 20px;
+    background-color: #1C2833;
+    color: #fff;
 }
 
-footer .social-links {
-    margin-top: 10px;
+.social-links h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 
-footer .social-links a {
-    color: #365367;
-    margin: 0 10px;
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Spacing between icons */
+    margin-top: 30px;
+}
+
+.social-icon {
+    background-color: #D5DBDB;
+    color: #1C2833;
+    font-size: 1.4rem;
+    padding: 15px 30px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: bold;
 }
 
-footer .social-links a:hover {
-    color: #e74c3c;
+.social-icon i {
+    margin-right: 10px; /* Space between icon and text */
 }
 
-/* Media Queries */
+/* Hover Effects for the Links */
+.social-icon:hover {
+    background-color: #1C2833;
+    color: #D5DBDB;
+    transform: translateY(-5px); /* Slight lift effect */
+}
+
+/* Behance Link Specific Style */
+.social-icon.behance {
+    background-color: #1769ff; /* Behance color */
+    color: #fff;
+}
+
+.social-icon.behance:hover {
+    background-color: #0a53cc; /* Darker shade on hover */
+}
+
+/* LinkedIn Link Specific Style */
+.social-icon.linkedin {
+    background-color: #0077b5; /* LinkedIn color */
+    color: #fff;
+}
+
+.social-icon.linkedin:hover {
+    background-color: #004c8c; /* Darker shade on hover */
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .hero-content h2 {
-        font-size: 36px;
+    .social-icons {
+        flex-direction: column; /* Stack the icons on small screens */
     }
+}
+.social-links {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #1C2833;
+    color: #fff;
+    margin-top: 50px; /* Add some space above the social links section */
+}
 
-    .portfolio-gallery {
-        grid-template-columns: 1fr;
-    }
+.social-links h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Spacing between icons */
+    margin-top: 30px;
+}
+
+footer {
+    background-color: #1C2833;
+    color: #D5DBDB;
+    text-align: center;
+    padding: 10px;
+}
+
+footer p {
+    font-size: 1rem;
 }
