@@ -27,6 +27,113 @@ header nav {
 header .nav-links li a:hover {
     color: #e74c3c;
 }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #D5DBDB;
+    color: #1C2833;
+    line-height: 1.6;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Link Styling */
+a {
+    text-decoration: none;
+    color: #1C2833;
+    transition: color 0.3s ease;
+}
+
+/* Navigation Bar Styling */
+header {
+    background-color: #1C2833;
+    padding: 1rem;
+}
+
+/* Logo Styling */
+nav .logo h1 {
+    color: white;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Links Styling */
+nav .logo p {
+    color: #D5DBDB;
+    font-size: 14px;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav .nav-links li {
+    margin: 0 15px;
+}
+
+nav .nav-links a {
+    color: #D5DBDB;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header .nav-links li a:hover {
+    color: #e74c3c;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    /* Stack navigation links vertically and center */
+    header nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    /* Adjust the spacing and size for smaller screens */
+    nav .logo h1 {
+        font-size: 1.8rem;
+    }
+
+    nav .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 20px;
+    }
+
+    nav .nav-links li {
+        margin: 10px 0;
+    }
+
+    /* Adjust font size for mobile */
+    nav .nav-links a {
+        font-size: 14px;
+    }
+
+    /* Ensure logo text is centered (if you want to) */
+    .logo {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* Optional: Add mobile-specific styles */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    nav .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    nav .nav-links a {
+        font-size: 13px;
+    }
+}
 
 /* Navigation Bar */
 header {
